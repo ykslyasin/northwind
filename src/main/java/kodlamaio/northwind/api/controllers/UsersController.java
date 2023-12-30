@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -16,18 +17,19 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
+
 import jakarta.validation.Valid;
 import kodlamaio.northwind.business.abstracts.UserService;
 import kodlamaio.northwind.core.entities.User;
 import kodlamaio.northwind.core.utilities.results.DataResult;
 import kodlamaio.northwind.core.utilities.results.ErrorDataResult;
-
 import kodlamaio.northwind.core.utilities.results.Result;
 
 import org.springframework.http.HttpStatus;
 
 @RestController
 @RequestMapping(value="/api/users")
+@CrossOrigin
 public class UsersController {
 
 	private UserService userService;
@@ -54,10 +56,22 @@ public class UsersController {
 		return this.userService.registration(user);
 	}
 	
-	@GetMapping("/findByEmail")
-	public DataResult<User> findByEmail(String email) {
+	/*@GetMapping("/findByEmail")
+	public Result findByEmail(String email) {
 		// TODO Auto-generated method stub
 		return this.userService.findByEmail(email);
+	}*/
+	
+	/*@GetMapping("/checkUserWithMail")
+	public Result checkUserWithMail(String email) {
+		// TODO Auto-generated method stub
+		return this.userService.checkUserWithMail(email);
+	}*/
+	
+	@GetMapping("/loginAuth")
+	public DataResult<User> loginAuth(String username, String password){
+		
+		return this.userService.loginAuth(username, password);
 	}
 	
 	@ExceptionHandler(MethodArgumentNotValidException.class)
