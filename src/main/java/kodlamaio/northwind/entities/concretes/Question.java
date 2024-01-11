@@ -19,10 +19,14 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class Question {
 
+	
 		@Id
 		@GeneratedValue(strategy=GenerationType.IDENTITY)
 		@Column(name="question_id")
 		private int questionId;
+		
+		@Column(name="movie_name")
+		private String movieName;
 		
 		@NotNull
 		@NotBlank
@@ -33,11 +37,6 @@ public class Question {
 		@NotBlank
 		@Column(name="question_answer")
 		private String answer;
-		
-		@NotNull
-		@NotBlank
-		@Column(name="question_group")
-		private int questionGroup;
 		
 		@NotNull
 		@NotBlank

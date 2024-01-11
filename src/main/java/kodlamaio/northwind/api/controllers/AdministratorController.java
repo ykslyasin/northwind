@@ -1,78 +1,57 @@
 package kodlamaio.northwind.api.controllers;
 
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
+import org.springframework.http.HttpStatus;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.ExceptionHandler;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-
-
-import jakarta.validation.Valid;
-import kodlamaio.northwind.business.abstracts.UserService;
+import kodlamaio.northwind.business.abstracts.AdministratorService;
+import kodlamaio.northwind.core.entities.Administrator;
 import kodlamaio.northwind.core.entities.User;
-import kodlamaio.northwind.core.utilities.results.DataResult;
 import kodlamaio.northwind.core.utilities.results.ErrorDataResult;
 import kodlamaio.northwind.core.utilities.results.Result;
+import kodlamaio.northwind.entities.concretes.Question;
 
-import org.springframework.http.HttpStatus;
 
 @RestController
-@RequestMapping(value="/api/users")
+@RequestMapping("/api/administrators")
 @CrossOrigin
-public class UsersController {
+public class AdministratorController {
 
-	private UserService userService;
+	private AdministratorService administratorService;
 	
 	@Autowired
-	public UsersController(UserService userService) {
+	public AdministratorController(AdministratorService administratorService) {
 		super();
-		this.userService = userService;
+		this.administratorService = administratorService;
 	}
 	
-	@GetMapping("/getall")
-	public DataResult<List<User>> getAll() {
-		return this.userService.getAll();
-	}
-	
-	@PostMapping(value="/add")
-	public ResponseEntity<?> add(@Valid @RequestBody User user) {
+	@PostMapping("/addAdmin")
+	public Result add(@RequestBody Administrator administrator) {
 		
-		return ResponseEntity.ok(userService.add(user));
+		return this.administratorService.add(administrator);
 	}
 	
-	@PostMapping("/registration")
-	public Result registration(@RequestBody User user) {
-		return this.userService.registration(user);
-	}
-	
-	/*@GetMapping("/findByEmail")
-	public Result findByEmail(String email) {
-		// TODO Auto-generated method stub
-		return this.userService.findByEmail(email);
-	}*/
-	
-	/*@GetMapping("/checkUserWithMail")
-	public Result checkUserWithMail(String email) {
-		// TODO Auto-generated method stub
-		return this.userService.checkUserWithMail(email);
-	}*/
-	
-	@GetMapping("/loginAuth")
-	public DataResult<User> loginAuth(String username, String password){
+	@PostMapping("/addRingtone")
+	public Result add(@RequestBody Question question) {
 		
-		return this.userService.loginAuth(username, password);
+		return this.administratorService.add(question);
+	}
+	
+	@PostMapping("/addUser")
+	public Result add(@RequestBody User user) {
+		
+		return this.administratorService.add(user);
 	}
 	
 	@ExceptionHandler(MethodArgumentNotValidException.class)
@@ -91,5 +70,6 @@ public class UsersController {
 		= new ErrorDataResult<Object>(validationErrors, "Doğrulama hataları");
 		return errors;
 	}
+	
 	
 }

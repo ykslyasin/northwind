@@ -41,12 +41,6 @@ public class QuestionsController {
 		return this.questionService.add(question);
 	}
 	
-	@GetMapping("/getByGroupAndLevel")
-	public DataResult<Question> getByQuestionGroupAndQuestionLevel(@RequestParam int questionGroup,@RequestParam int questionLevel){
-		
-		return this.questionService.getByQuestionGroupAndQuestionLevel(questionGroup, questionLevel);
-	}
-	
 	@GetMapping("/getById")
 	public DataResult<Question> getById(@RequestParam int questionId){
 		
@@ -75,6 +69,8 @@ public class QuestionsController {
 		= new ErrorDataResult<Object>(validationErrors, "Doğrulama hataları");
 		return errors;
 	}*/
+	
+	
 
 	
 }

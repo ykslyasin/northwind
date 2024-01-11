@@ -36,12 +36,6 @@ public class QuestionManager implements QuestionService{
 		return new SuccessResult("Soru eklendi.");
 	}
 
-	@Override
-	public DataResult<Question> getByQuestionGroupAndQuestionLevel(int questionGroup, int questionLevel) {
-		
-		return new SuccessDataResult<Question>
-		(this.questionDao.getByQuestionGroupAndQuestionLevel(questionGroup, questionLevel), "Data getirildi.");
-	}
 
 	@Override
 	public DataResult<Question> getById(int questionId) {
