@@ -48,5 +48,8 @@ public class Question {
 		@Column(name="question_url")
 		private String questionUrl;
 		
+		@Column(name="subtitles")
+		private String subtitles;
+		
 
 }
