@@ -44,9 +44,9 @@ public class QuestionManager implements QuestionService{
 	}
 
 	@Override
-	public DataResult<Question> getByQuestionLevel(int questionLevel) {
+	public DataResult<List<Question>> getByQuestionLevel(int questionLevel) {
 		
-		return new SuccessDataResult<Question>
+		return new SuccessDataResult<List<Question>>
 		(this.questionDao.getByQuestionLevel(questionLevel), "Data getirildi.");
 	}
 

@@ -14,5 +14,5 @@ public interface QuestionService {
 	
 	DataResult<Question> getById(int questionId);
 	
-	DataResult<Question> getByQuestionLevel(int questionLevel);
+	DataResult<List<Question>> getByQuestionLevel(int questionLevel);
 }

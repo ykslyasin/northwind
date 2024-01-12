@@ -48,7 +48,7 @@ public class QuestionsController {
 	}
 	
 	@GetMapping("/getByLevel")
-	public DataResult<Question> getByQuestionLevel(@RequestParam int questionLevel){
+	public DataResult<List<Question>> getByQuestionLevel(@RequestParam int questionLevel){
 		
 		return this.questionService.getByQuestionLevel(questionLevel);
 	}
