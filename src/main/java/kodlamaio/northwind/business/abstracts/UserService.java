@@ -26,6 +26,6 @@ public interface UserService {
 	
     Result addSolvedQuestionToUser(int userId, int questionId);
 
-  //  Result incrementUserPoints(int userId);
+    Result incrementUserPoints(int userId, int questionLevel);
 	
 }
