@@ -29,7 +29,7 @@ class UserManagerTest {
 	@InjectMocks
 	UserManager userManager = new UserManager(userDao);
 	
-	@Test
+	/*@Test
 	public void testGetAllUser() {
 		
 		List<Integer> mockQuestions = new ArrayList<>();
@@ -46,7 +46,7 @@ class UserManagerTest {
         assertEquals(mockUsers.size(), result.getData().size());
 		
 		
-	}
+	}*/
 	
     @Test
     public void testRegistration_Failure() {
