@@ -42,7 +42,7 @@ public class AdministratorController {
 		return this.administratorService.add(administrator);
 	}
 	
-	@PostMapping("/addRingtone")
+	@PostMapping("/addQuestion")
 	public Result add(@RequestBody Question question) {
 		
 		return this.administratorService.add(question);

@@ -1,8 +1,11 @@
 package kodlamaio.northwind.core.entities;
 
+import java.util.ArrayList;
 import java.util.List;
 
+import jakarta.persistence.CollectionTable;
 import jakarta.persistence.Column;
+import jakarta.persistence.ElementCollection;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -49,8 +52,18 @@ public class User {
 	@Column(name="username")
 	private String userName;
 	
-	@Column(name="solved_questions")
-	private List<Integer> solvedQuestions;
+    @ElementCollection
+    @CollectionTable(name = "user_solved_questions", joinColumns = @JoinColumn(name = "user_id"))
+    @Column(name = "question_id")
+    private List<Integer> solvedQuestions;
+    
+    public void addSolvedQuestion(int questionId) {
+        if (solvedQuestions == null) {
+            solvedQuestions = new ArrayList<>();
+        }
+        solvedQuestions.add(questionId);
+    }
+
 	
 	
 	

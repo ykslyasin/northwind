@@ -2,8 +2,7 @@ package kodlamaio.northwind.business.concretes;
 
 
 import java.util.List;
-
-
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -104,8 +103,24 @@ public class UserManager implements UserService{
 		}
 	}
 	
-	
-	
-	
+    @Override
+    public Result addSolvedQuestionToUser(int userId, int questionId) {
+    	
+        Optional<User> optionalUser = userDao.findById(userId);
 
+        if (optionalUser.isEmpty()) {
+            return new ErrorResult("Kullanıcı bulunamadı.");
+        }
+
+        User user = optionalUser.get();
+
+        if (user.getSolvedQuestions() != null && user.getSolvedQuestions().contains(questionId)) {
+            return new ErrorResult("Bu soru zaten çözülmüş.");
+        }
+        
+        user.addSolvedQuestion(questionId);
+        userDao.save(user);
+        return new SuccessResult("Soru başarıyla eklenmiştir.");
+
+}
 }

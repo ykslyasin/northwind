@@ -48,9 +48,9 @@ public class QuestionsController {
 	}
 	
 	@GetMapping("/getByLevel")
-	public DataResult<List<Question>> getByQuestionLevel(@RequestParam int questionLevel){
+	public DataResult<List<Question>> getByQuestionLevel(@RequestParam int questionLevel, @RequestParam int userId){
 		
-		return this.questionService.getByQuestionLevel(questionLevel);
+		return this.questionService.getByQuestionLevel(questionLevel, userId);
 	}
 	
 	/*@ExceptionHandler(MethodArgumentNotValidException.class)

@@ -18,10 +18,14 @@ public interface UserService {
 	
 	Result registration(User user);
 	
-	/*Result checkUserWithMail(String email);*/
+	//Result checkQuestionWithQuestionId(int questionId);
 	
 	DataResult<List<User>> getAll();
 	
 	DataResult<User> loginAuth(String username, String password);
+	
+    Result addSolvedQuestionToUser(int userId, int questionId);
+
+    
 	
 }
