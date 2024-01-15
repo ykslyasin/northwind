@@ -54,7 +54,7 @@ public class User {
     private List<Integer> solvedQuestions;
     
     @Column(name="user_points")
-    private int userPoints = 0;
+    private int userPoints;
     
     public void addSolvedQuestion(int questionId) {
         if (solvedQuestions == null) {
