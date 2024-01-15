@@ -58,10 +58,10 @@ public class UsersController {
 		return this.userService.registration(user);
 	}
 	
-	@PostMapping("/incrementUserPoints")
-	public Result incrementUserPoints(@RequestParam int userId, @RequestParam int questionLevel) {
-		return this.userService.incrementUserPoints(userId, questionLevel);
-	}
+	/*@PostMapping("/incrementUserPoints")
+	public Result incrementUserPoints(@RequestParam int userId) {
+		return this.userService.incrementUserPoints(userId);
+	}*/
 	
 	/*@GetMapping("/findByEmail")
 	public Result findByEmail(String email) {

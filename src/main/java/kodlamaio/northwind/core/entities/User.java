@@ -53,8 +53,8 @@ public class User {
     @Column(name = "question_id")
     private List<Integer> solvedQuestions;
     
-    @Column(name="user_points")
-    private int userPoints;
+    /*@Column(name="user_points")
+    private int userPoints;*/
     
     public void addSolvedQuestion(int questionId) {
         if (solvedQuestions == null) {
@@ -62,11 +62,7 @@ public class User {
         }
         solvedQuestions.add(questionId);
     }
-    
-    public void incrementUserPoints(int pointsToAdd) {
-        this.userPoints += pointsToAdd;
-    }
-	
+
 	
 	
 }
