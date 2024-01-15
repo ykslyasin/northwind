@@ -141,7 +141,7 @@ public class UserManager implements UserService{
            userDao.save(user);
            return new SuccessResult("Kullanıcı puanı başarıyla artırıldı.");
        } else {
-           return new ErrorResult("Kullanıcı bulunamadı.");
+           return new ErrorResult("Kullanıcı bulunamaz.");
        }
    }
 }
