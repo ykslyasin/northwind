@@ -26,7 +26,6 @@ import kodlamaio.northwind.core.entities.User;
 import kodlamaio.northwind.core.utilities.results.DataResult;
 import kodlamaio.northwind.core.utilities.results.ErrorDataResult;
 import kodlamaio.northwind.core.utilities.results.Result;
-import kodlamaio.northwind.entities.concretes.Question;
 
 import org.springframework.http.HttpStatus;
 

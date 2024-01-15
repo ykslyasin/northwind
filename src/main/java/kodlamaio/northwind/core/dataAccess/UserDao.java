@@ -4,7 +4,6 @@ import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import kodlamaio.northwind.core.entities.User;
-import kodlamaio.northwind.entities.concretes.Question;
 
 
 public interface UserDao extends JpaRepository<User, Integer>{
