@@ -122,5 +122,26 @@ public class UserManager implements UserService{
         userDao.save(user);
         return new SuccessResult("Soru başarıyla eklenmiştir.");
 
-}
+    }
+    
+    public Result incrementUserPoints(int userId, int questionLevel) {
+        Optional<User> optionalUser = userDao.findById(userId);
+
+        if (optionalUser.isPresent()) {
+            User user = optionalUser.get();
+            int pointsToAdd;
+
+            if (questionLevel == 0) {
+                pointsToAdd = 25;
+            } else {
+                pointsToAdd = questionLevel * 10;
+            }
+
+            user.incrementUserPoints(pointsToAdd);
+            userDao.save(user);
+            return new SuccessResult("Kullanıcı puanı başarıyla artırıldı.");
+        } else {
+            return new ErrorResult("Kullanıcı bulunamadı.");
+        }
+    }
 }

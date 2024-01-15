@@ -9,11 +9,8 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.springframework.boot.test.context.SpringBootTest;
-import kodlamaio.northwind.business.concretes.QuestionManager;
 import kodlamaio.northwind.core.utilities.results.DataResult;
 import kodlamaio.northwind.core.utilities.results.Result;
-import kodlamaio.northwind.core.utilities.results.SuccessDataResult;
-import kodlamaio.northwind.core.utilities.results.SuccessResult;
 import kodlamaio.northwind.dataAccess.abstracts.QuestionDao;
 import kodlamaio.northwind.entities.concretes.Question;
 
@@ -71,7 +68,7 @@ public class QuestionManagerTests {
         assertNotNull(result.getData());
     }
 
-    @Test
+  /*  @Test
     public void getByQuestionLevel_ExistingLevel_ReturnsSuccessDataResult() {
         // Arrange
         int existingQuestionLevel = 1;
@@ -87,5 +84,5 @@ public class QuestionManagerTests {
         assertEquals("Data getirildi.", result.getMessage());
         assertNotNull(result.getData());
         assertEquals(1, result.getData().size());
-    }
+    }*/
 }

@@ -58,6 +58,11 @@ public class UsersController {
 		return this.userService.registration(user);
 	}
 	
+	@PostMapping("/incrementUserPoints")
+	public Result incrementUserPoints(@RequestParam int userId, @RequestParam int questionLevel) {
+		return this.userService.incrementUserPoints(userId, questionLevel);
+	}
+	
 	/*@GetMapping("/findByEmail")
 	public Result findByEmail(String email) {
 		// TODO Auto-generated method stub
@@ -77,7 +82,7 @@ public class UsersController {
 	}
 	
 	@PostMapping("/addSolvedQuestion")
-	public Result addSolvedQuestionToUser(@RequestParam("userId") int userId, @RequestParam("questionId") int questionId) {
+	public Result addSolvedQuestionToUser(@RequestParam int userId, @RequestParam int questionId) {
 
 		    //Result result = userService.addSolvedQuestionToUser(userId, questionId);
 
