@@ -4,6 +4,7 @@ import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import kodlamaio.northwind.core.entities.User;
+import kodlamaio.northwind.entities.concretes.Question;
 
 
 public interface UserDao extends JpaRepository<User, Integer>{
@@ -16,9 +17,14 @@ public interface UserDao extends JpaRepository<User, Integer>{
 	
 	List<User> getByPassword(String password);
 	
+	//List<User> getById(int id);
+	
 	User findByuserNameAndPassword(String userName, String password);
 	
     User getByIdAndSolvedQuestionsContaining(int userId, int questionId);
+    
+	User getById(int userId);
+
 
 	
 }

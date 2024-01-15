@@ -16,6 +16,7 @@ import kodlamaio.northwind.core.utilities.results.ErrorResult;
 import kodlamaio.northwind.core.utilities.results.Result;
 import kodlamaio.northwind.core.utilities.results.SuccessDataResult;
 import kodlamaio.northwind.core.utilities.results.SuccessResult;
+import kodlamaio.northwind.entities.concretes.Question;
 
 
 
@@ -143,5 +144,12 @@ public class UserManager implements UserService{
        } else {
            return new ErrorResult("Kullanıcı bulunamaz.");
        }
+   }
+
+   @Override
+   public User getById(int userId) {
+	   	
+       Optional<User> optionalUser = userDao.findById(userId);
+       return optionalUser.orElse(null);
    }
 }

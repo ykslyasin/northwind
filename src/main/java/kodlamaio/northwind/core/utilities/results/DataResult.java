@@ -14,6 +14,12 @@ public class DataResult<T> extends Result{
 		this.data = data;
 	}
 	
+	public DataResult(T data, String message) {
+		super(message);
+		this.data = data;
+		
+	}
+	
 	public T getData() {
 		
 		return this.data;

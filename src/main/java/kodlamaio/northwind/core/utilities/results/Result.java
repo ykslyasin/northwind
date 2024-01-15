@@ -15,6 +15,10 @@ public class Result {
 		this.message = message;
 	}
 	
+	public Result(String message) {
+		this.message = message;
+	}
+	
 	public boolean isSuccess() {
 		
 		return this.success;
